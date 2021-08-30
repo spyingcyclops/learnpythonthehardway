@@ -1,0 +1,7 @@
+There is a famous saying due to Kronecker (1823–1891):
+God made the integers, man did the rest.
+So fundamental are the integers that whenever you see a discussion of communication with an alien intelligence it is always assumed that they too have
+the integers, at least the positive ones. Counting is so basic that a high level of
+technology seems impossible without the integers. Counting is usually taught
+as 1, 2, 3, … , but experience is beginning to favor 0, 1, 2, … as the preferable
+way. You will see numerous examples of this change as we go along.
