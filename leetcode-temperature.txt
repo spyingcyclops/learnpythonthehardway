@@ -1,0 +1,7 @@
+
+Psuedocode
+        #take leftmost number/a (len = 0?)
+        #check next number to the right/a+1, a+2, a+n until a+n>a
+        #count each iteration in variable j. When a+n>a, store j to result_array
+        #when a+n!>a, assign j as 0 and end loop.
+        #restart loop from position a+1

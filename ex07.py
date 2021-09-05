@@ -1,4 +1,4 @@
-print("Mary had a little lamb.")
+print("Mary had two little lambs.")
 print("It's fleece was white as {}.".format('snow'))
 print("And everywhere that Mary went.")
 print("." * 10) #prints the string ten times
