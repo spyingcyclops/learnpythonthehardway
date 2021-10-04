@@ -27,4 +27,3 @@ for i in range(0, 6):
 #now we can print them out too
 for i in elements:
     print(f"Element was: {i}")
-
