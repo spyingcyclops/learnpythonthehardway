@@ -59,7 +59,7 @@ for word in urlopen(WORD_URL).readlines():
     try:
         while True:
             snippets = list(PHRASES.keys())
-            random.shuffle(snippets)
+            random.shuffle(snippets)  # test
 
             for snippet in snippets:
                 phrase = PHRASES[snippet]

@@ -94,3 +94,6 @@ def remevens(list):
         if i % 2 != 0:
             oddlist.append(i)
     print(oddlist)
+
+#15 shuffle and print a specified list TODO
+

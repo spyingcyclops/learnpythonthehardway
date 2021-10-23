@@ -21,6 +21,7 @@ from practice import sumitems, multitems, maxnum, minnum, listempty, remdups, li
 #print(remlist)
 #redlist.pop(2)
 redlist = ['zeroth', 'first', 'second', 'third', 'fourth', 'fifth', 'sixth']
-print(redlist)
-redlist.pop(2)
-print(redlist)
+print(enumerate(redlist))
+
+str = "HelloWorld"
+print(list(enumerate(str)))
