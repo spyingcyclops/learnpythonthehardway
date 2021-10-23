@@ -1,0 +1,6 @@
+num = input('Enter a number: ')
+print(num)
+l = list(num)
+print(l)
+l = reversed(l)
+print(l)
