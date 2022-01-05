@@ -6,12 +6,12 @@ WORD_URL = "http://learncodethehardway.org/words.txt"
 WORDS = []
 
 PHRASES = {
-    "class %%%(%%%):": "Make a class named %%% that is-a %%%.",
+    "class %%%(%%%)": "Make a class named %%% that is-a %%%",
     "class %%%(object):\n\tdef __init__(self, ***)": "class %%% has-a __init__ that takes self and *** params.",
     "class %%%(object):\n\tdef ***(self, @@@)": "class %%% has-a function *** that takes self and @@@ params.",
     "*** = %%%()": "Set *** to an instance of class %%%.",
-    "***.***(@@@)": "From *** get the *** function, call it with params self.@@@.",
-    "***.*** = '***'": "From *** get the *** attribute and set it to '***'.",
+    "***.***(@@@)": "From *** get the *** function, call it with params self, @@@.",
+    "***.*** = '***'": "From *** get the *** attribute and set it to '***'",
 }
 
 # do they want to drill phrases first
@@ -24,51 +24,52 @@ else:
 for word in urlopen(WORD_URL).readlines():
     WORDS.append(str(word.strip(), encoding="utf-8"))
 
-    def convert(snippet, phrase):
-        class_names = [
-            w.capitalized() for w in random.sample(WORDS, snippet.count("%%%"))
-        ]
 
-        other_names = random.sample(WORDS, snippet.count("***"))
-        results = []
-        param_names = []
+def convert(snippet, phrase):
+    class_names = [w.capitalize() for w in random.sample(WORDS, snippet.count("%%%"))]
+    other_names = random.sample(WORDS, snippet.count("***"))
+    results = []
+    param_names = []
 
-        for i in range(0, snippet.count("@@@")):
-            param_count = random.randing(1, 3)
-            param_names.appent(",".join(random.sample(WORDS, param_count)))
-            for sentence in snippet, phrase:
-                result = sentence[:]
+    for i in range(0, snippet.count("@@@")):
+        param_count = random.randint(1, 3)
+        param_names.append(", ".join(random.sample(WORDS, param_count)))
 
-                # fake class names
-                for word in class_names:
-                    result = result.replace("%%%", word, 1)
+    for sentence in snippet, phrase:
+        result = sentence[:]
 
-                # fake other names
-                for word in other_names:
-                    result = result.replace("***", word, 1)
+        # fake class names
+        for word in class_names:
+            result = result.replace("%%%", word, 1)
 
-                # fake parameter lists
-                for word in param_names:
-                    result = result.replace("@@@", word, 1)
+        # fake other names
+        for word in other_names:
+            result = result.replace("***", word, 1)
 
-                    results.append(result)
+        # fake parameter lists
+        for word in param_names:
+            result = result.replace("@@@", word, 1)
 
-        return results
+        results.append(result)
 
-    # keep going until they hit CTRL-D
-    try:
-        while True:
-            snippets = list(PHRASES.keys())
-            random.shuffle(snippets)  # test
+    return results
 
-            for snippet in snippets:
-                phrase = PHRASES[snippet]
-                question, answer = convert(snippet, phrase)
-                if PHRASE_FIRST:
-                    question, answer = answer, question
-                    print(question)
 
-                    input("< ")
-                    print(f"ANSWER: {answer}\n\n")
-    except EOFError:
-        print("\nBye")
+# keep going until they hit CTRL+D
+try:
+    while True:
+        snippets = list(PHRASES.keys())
+        random.shuffle(snippets)
+
+        for snippet in snippets:
+            phrase = PHRASES[snippet]
+            question, answer = convert(snippet, phrase)
+            if PHRASE_FIRST:
+                question, answer = answer, question
+
+            print(question)
+
+            input("< ")
+            print(f"ANSWER: {answer}\n\n")
+except EOFError:
+    print("\nBye")
