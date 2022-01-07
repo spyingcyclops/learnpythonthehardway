@@ -14,8 +14,9 @@ PHRASES = {  # here we construct our phrases as templates using wildcards, I gue
     "***.*** = '***'": "From *** get the *** attribute and set it to '***'",
 }
 
-# do they want to drill phrases first // WTF is this block for?
-if len(sys.argv) == 2 and sys.argv[1] == "english":  # WTF is happening in this line?
+# do they want to drill phrases first // WTF is this block for? Ok, I think I get it. if you pass in the "english" 
+# argument when you run the script, then task is reversed, and you convert plain English into OOP-terms.
+if len(sys.argv) == 2 and sys.argv[1] == "english": 
     PHRASE_FIRST = True
 else:
     PHRASE_FIRST = False
